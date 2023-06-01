@@ -4,16 +4,28 @@
 
 ### Algorithm
 
+1. We need to form pairs (a,b) such that a <= b. The min element of the pair (i.e a) is added to the end of the sum where as max element is discarded.
+2. Sort the given array. Initialize maxSum
+3. Iterate over the sorted array and add min element to the maxSum. Increment the iterator by 2
+4. return maxSum
+
 ### Code
 
 ```c
+sort(nums.begin(), nums.end());
+int maxSum = 0;
 
+for(int i = 0; i < nums.size(); i+=2){
+    maxSum += nums[i];
+}
+
+return maxSum;
 ```
 
 ### Space and Time Complexity
 
-- TC: O(N) - We go over all the elements of the array
-- SC: O(1) - We are not using any extra space
+- TC: O(NlogN) - Since we are using built in sort funtion
+- SC: O(logN) - Since we are using built in sort funtion
 
 ---
 
@@ -21,10 +33,24 @@
 
 ### Algorithm
 
+1. Initialize a set
+2. Loop over all the elements of the array and insert them into the set
+3. Size of the set is nothing but the number of unique candies. array.size()/2 is the number of candies alice can eat
+4. return the minimum number of unique candies
+
 ### Code
 
 ```c
+unordered_set<int> uniqueCandiesSet;
 
+for(auto candy: candyType){
+  uniqueCandiesSet.insert(candy);
+}
+
+int totalCandyTypes = uniqueCandiesSet.size(); // Types of candies
+int canEat = candyType.size() / 2; // Total candies Alice can eat
+
+return min(totalCandyTypes, canEat);
 ```
 
 ### Space and Time Complexity
@@ -38,16 +64,34 @@
 
 ### Algorithm
 
+1. Initialize map and insert all the elements and their frequencies into the map
+2. Initialize ans with 0. Loop over the map and check if an element greater than the current element by one exists
+3. If yes assign the maximum value between the current ans and frequency of current element + frequency of the element which is 1 greater than current element to sum
+4. return the sum
+
 ### Code
 
 ```c
-steevelsharonsalis@gmail.com
+unordered_map<int, int> mpp;
+
+for(auto x: nums){
+  mpp[x]++;
+}
+
+int res = 0;
+for(auto x: mpp){
+  if(mpp.find(x.first+1) != mpp.end()){
+    res = max(res, (x.second + mpp[x.first+1]));
+  }
+}
+
+return res;
 ```
 
 ### Space and Time Complexity
 
 - TC: O(N) - We go over all the elements of the array
-- SC: O(1) - We are not using any extra space
+- SC: O(N) - Since we are using map of size N
 
 ---
 
