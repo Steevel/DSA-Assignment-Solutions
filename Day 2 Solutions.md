@@ -1,4 +1,4 @@
-# Day 1 Solutions
+# Day 2 Solutions
 
 ## Question 1
 
