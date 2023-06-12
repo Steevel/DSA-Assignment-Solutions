@@ -1,4 +1,4 @@
-# Day 12 Solutions - 2,3
+# Day 12 Solutions
 
 ## Question 1
 
