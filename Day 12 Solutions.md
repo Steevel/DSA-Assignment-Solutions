@@ -222,12 +222,76 @@ return head;
 
 ### Algorithm
 
-1.
+1. Initialize current node to head;
+2. Loop over the LL untill the current node is less than M and current node is not equal to null.
+3. After skipping the M nodes if currNode is equal to null return
+4. Assign currNode.next to next node.
+5. Increment the next node untill count is equal to N or nextNode is equal to null. Store the current node in temp and move the next node
+6. Assign nextNode to currNode.next and then assign currentNode to nextNode.
 
 ### Code
 
 ```java
+Node currNode = head;
+Node nextNode;
 
+while(currNode!=null){
+    
+  // Skip M nodes
+  for(int i = 1; i < M && currNode != null; i++){
+    currNode = currNode.next;
+  }
+  
+  // If we have reached the end of the list return
+  if(currNode == null)
+    return;
+  
+  // Delete N nodes
+  nextNode = currNode.next;
+  for(int i = 1; i <= N && nextNode != null; i++){
+    Node temp = nextNode;
+    nextNode = nextNode.next;
+  }
+  
+  currNode.next = nextNode;
+  currNode = nextNode;
+}
+```
+
+### Space and Time Complexity
+
+- TC: O(N) - The loop runs N times in the worst case
+- SC: O(1) - We are not using any extra space
+
+---
+
+## Question 7
+
+### Algorithm
+
+1. Initialize current pointers pointing to heads of each linked list. Also initialize next pointers.
+2. while current pointers are not equal to null assign next pointers to the node next to the current pointers
+3. Create a connection between current node of L2 and next node of L1 also create a connection between the current node of L1 and the next node of L1 and current node of L2
+4. Assing current node of L1 to next node of L1 and current node of L2 to next node of L2
+
+### Code
+
+```java
+Node l1_curr = head1, l2_curr = head2;
+Node l1_next, l2_next;
+
+while(l1_curr != null && l2_curr != null){
+  l1_next = l1_curr.next;
+  l2_next = l2_curr.next;
+
+  l2_curr.next = l1_next;
+  l1_curr.next = l2_curr;
+
+  l1_curr = l1_next;
+  l2_curr = l2_next;
+}
+
+return head1;
 ```
 
 ### Space and Time Complexity
