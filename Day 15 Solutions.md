@@ -89,3 +89,209 @@ return ans;
 - SC: O(N) - We are using ans of size N
 
 ---
+
+## Question 3
+
+### Algorithm
+
+1. Initialize 2 queues q1 and q2
+2. To perform `push()` operation add the element into q1
+3. To perform `pop()` operation move all elements from q1 to q2 except the last element. Remove the one remaining element from q1. move back all elements from q2 to q1. return the popped element
+4. To perform `top()` operation move all elements from q1 to q2 except the last element. Get the top element from q1. move back all elements from q2 to q1. return the retrived top element
+5. To perform `empty()` return true if the size of q1 is equal to zero else return false
+
+### Code
+
+```java
+Queue<Integer> q1 = new LinkedList<>();
+Queue<Integer> q2 = new LinkedList<>();
+
+public MyStack() {
+  
+}
+
+public void push(int x) {
+  q1.add(x);
+}
+
+public int pop() {
+  while(q1.size() > 1){
+    q2.add(q1.remove());
+  }
+
+  int popped = q1.remove();
+
+  while(!q2.isEmpty()){
+    q1.add(q2.remove());
+  }
+
+  return popped;
+}
+
+public int top() {
+  while(q1.size() > 1){
+    q2.add(q1.remove());
+  }
+
+  int topmost = q1.peek();
+  q2.add(q1.remove());
+
+  while(!q2.isEmpty()){
+    q1.add(q2.remove());
+  }
+
+  return topmost;
+}
+
+public boolean empty() {
+  if(q1.size() == 0)
+    return true;
+  else
+    return false;
+}
+```
+
+### Space and Time Complexity
+
+- TC: O(N) -
+- SC: O(N) -
+
+---
+
+## Question 4
+
+### Algorithm
+
+1.
+
+### Code
+
+```java
+
+```
+
+### Space and Time Complexity
+
+- TC: O(N)
+- SC: O(N)
+
+---
+
+## Question 5
+
+### Algorithm
+
+1. Initialize a stack of characters
+2. Iterate over the given string and push each character onto the stack
+3. While the stack is not empty, pop each character from the stack and append it to the ans string
+4. Return the ans string
+
+### Code
+
+```java
+int n = S.length();
+Stack<Character> st = new Stack<>();
+
+for(int i = 0; i < n; i++){
+  st.push(S.charAt(i));
+}
+
+String ans = "";
+while(!st.isEmpty()){
+  ans = ans + st.pop();
+}
+
+return ans;
+```
+
+### Space and Time Complexity
+
+- TC: O(N) - we are traversing the string of length n
+- SC: O(N) - we are using a stack of size n
+
+---
+
+## Question 6
+
+### Algorithm
+
+1. Initialize a stack of characters
+2. Iterate over the given string and push each character onto the stack
+3. While the stack is not empty, pop each character from the stack and append it to the ans string
+4. Return the ans string
+
+### Code
+
+```java
+int n = S.length();
+Stack<Character> st = new Stack<>();
+
+for(int i = 0; i < n; i++){
+  st.push(S.charAt(i));
+}
+
+String ans = "";
+while(!st.isEmpty()){
+  ans = ans + st.pop();
+}
+
+return ans;
+```
+
+### Space and Time Complexity
+
+- TC: O(N) - we are traversing the string of length n
+- SC: O(N) - we are using a stack of size n
+
+---
+
+## Question 7
+
+### Algorithm
+
+1. Initialize a stack of characters
+2. Iterate over the given string and push each character onto the stack
+3. While the stack is not empty, pop each character from the stack and append it to the ans string
+4. Return the ans string
+
+### Code
+
+```java
+class MinStack {
+  Stack<Integer> st = new Stack<>();
+  Stack<Integer> minSt = new Stack<>();
+
+  public MinStack() {
+
+  }
+  
+  public void push(int val) {
+    st.push(val);
+    if(minSt.isEmpty() || val <= minSt.peek()){
+        minSt.push(val);
+    }
+  }
+  
+  public void pop() {
+    if(st.peek().equals(minSt.peek())){
+      minSt.pop();
+    } 
+    st.pop();
+  }
+  
+  public int top() {
+    return st.peek();
+  }
+  
+  public int getMin() {
+    return minSt.peek();
+  }
+}
+```
+
+### Space and Time Complexity
+
+- TC: O(1) - push, pop, top and getMin operations take constant time
+- SC: O(N) - we are using a stack of size n
+
+---
