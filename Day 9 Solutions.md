@@ -1,4 +1,4 @@
-# Day 11 Solutions - 2
+# Day 11 Solutions - 2, 8
 
 ## Question 1
 
@@ -108,18 +108,28 @@ public static int naturalSum(int n) {
 
 ### Algorithm
 
-1.
+1. Define function `ap` which recives three integers namely first term, common difference and N
+2. Base Case: when N is equal to 1 print the first term
+3. Calculate the next term by adding first term  and the common
+4. Call function ap recursively with the newly calculated next term, difference and N-1
 
 ### Code
 
 ```java
-
+public static void ap(int a, int d, int N){
+  if(N == 1){
+    System.out.println(a);
+    return;
+  }
+  int num = a+d;
+  ap(num, d, N-1);
+}
 ```
 
 ### Space and Time Complexity
 
-- TC:
-- SC:
+- TC: O(n) - because we will be going thorough n natural numbers
+- SC: O(n) - because we are making n recursive calls
 
 ---
 
