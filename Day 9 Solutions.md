@@ -1,21 +1,34 @@
-# Day 11 Solutions - 2, 3, 4, 5, 6, 8
+# Day 11 Solutions - 1, 2, 3, 4, 5, 6, 8
 
 ## Question 1
 
 ### Algorithm
 
-1.
+1. Define funtion `isPowerOfTwo` which takes an integer n as input
+2. Base case: if the n <= 0 return false since n is not a power of two. If n is equal to one return true since 1 is the power of two
+3. else check if n%2 == 0. If not return false since the power of two will always be completely divisible by 2
+4. If n%2 == 0, return the result of recursive call to isPowerOfTwo with n/2
 
 ### Code
 
 ```java
-
+public static boolean isPowerOfTwo(int n) {
+  if (n <= 0) {
+    return false; // Base case: non-positive integers are not powers of two
+  } else if (n == 1) {
+    return true; // Base case: 1 is a power of two
+  } else if (n % 2 == 0) {
+    return isPowerOfTwo(n / 2); // Recursive case: check if n/2 is a power of two
+  } else {
+    return false; // n is not divisible by 2, hence not a power of two
+  }
+}
 ```
 
 ### Space and Time Complexity
 
-- TC:
-- SC:
+- TC: O(log n) - Since in each recursive call n is halved
+- SC: O(log n) - Since in each recursive call n is halved
 
 ---
 
