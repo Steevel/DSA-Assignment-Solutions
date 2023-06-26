@@ -1,4 +1,4 @@
-# Day 11 Solutions - 2, 8
+# Day 11 Solutions - 2, 8, 6
 
 ## Question 1
 
@@ -89,18 +89,25 @@ public static int naturalSum(int n) {
 
 ### Algorithm
 
-1.
+1. Define function `maxEle` which recives an input array and an interger as starting index
+2. Base Case: when index is equal to 0 return the first array element
+3. return the maximum elemnt between current array element and the result of recursive call to maxEle function with index-1
 
 ### Code
 
 ```java
-
+public static int maxEle(int[] arr, int idx){
+  if(idx == 0){
+    return arr[idx];
+  }
+  return Math.max(arr[idx], maxEle(arr, idx-1));
+}
 ```
 
 ### Space and Time Complexity
 
-- TC:
-- SC:
+- TC: O(n) - because we will be going thorough n natural numbers
+- SC: O(n) - because we are making n recursive calls
 
 ---
 
