@@ -1,4 +1,4 @@
-# Day 11 Solutions - 2, 8, 6
+# Day 11 Solutions - 2, 4, 5, 6, 8
 
 ## Question 1
 
@@ -70,18 +70,35 @@ public static int naturalSum(int n) {
 
 ### Algorithm
 
-1.
+1. Define function `exponent` which recives two integers N and P as input
+2. Base Case: when P is equal to 0 return 1
+3. Calculate the halfPower by recursive call to exponent function with P/2
+4. Calculate the power by multiplying halfPower with itself. If the P is even then return this power
+5. Else if P is odd multiply the power with N and return it
 
 ### Code
 
 ```java
+public static int exponent(int N, int P){
+  if(P == 0){
+    return 1;
+  }
+  
+  int halfPower = exponent(N, P/2);
+  int power = halfPower * halfPower;
 
+  if(P % 2 != 0){
+    power = N * power;
+  }
+  
+  return power;
+}
 ```
 
 ### Space and Time Complexity
 
-- TC:
-- SC:
+- TC: O(n) - because we will be going thorough n natural numbers
+- SC: O(n) - because we are making n recursive calls
 
 ---
 
