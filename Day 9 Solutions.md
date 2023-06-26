@@ -1,4 +1,4 @@
-# Day 11 Solutions - 2, 4, 5, 6, 8
+# Day 11 Solutions - 2, 3, 4, 5, 6, 8
 
 ## Question 1
 
@@ -51,18 +51,26 @@ public static int naturalSum(int n) {
 
 ### Algorithm
 
-1.
+1. Define function `factorial` which recives an interger N
+2. Base Case: when N is equal to 1 return 1
+3. Calculate the factorial by mulitplying current number N with the result of recursive call to the factorial function with N-1 and return it
 
 ### Code
 
 ```java
-
+public static int factorial(int N){
+  if(N == 1){
+    return 1;
+  }
+  
+  return N * factorial(N-1);
+}
 ```
 
 ### Space and Time Complexity
 
-- TC:
-- SC:
+- TC: O(n) - because we will be going thorough n natural numbers
+- SC: O(n) - because we are making n recursive calls
 
 ---
 
@@ -97,8 +105,8 @@ public static int exponent(int N, int P){
 
 ### Space and Time Complexity
 
-- TC: O(n) - because we will be going thorough n natural numbers
-- SC: O(n) - because we are making n recursive calls
+- TC: O(log P) - because at each recursive call the power is halved
+- SC: O(log P) - because at each recursive call the power is halved
 
 ---
 
