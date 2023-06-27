@@ -182,18 +182,33 @@ public static void ap(int a, int d, int N){
 
 ### Algorithm
 
-1.
+1. Define a function `findPermutations` that takes input string and an empty string as input
+2. Base case: whenver the length of the input string becomes 0 print the answer string
+3. iterate over the input string and at every iteration i add the corresponding character to the answer string and reomve that character from the input string. Make recursive calls with this new string
 
 ### Code
 
 ```java
+public static void findPermutations(String str, String ans) {
+  // base case
+  if (str.length() == 0) {
+    System.out.println(ans);
+    return;
+  }
 
+  // recursion
+  for (int i = 0; i < str.length(); i++) {
+    char curr = str.charAt(i);
+    String Newstr = str.substring(0, i) + str.substring(i + 1);
+    findPermutations(Newstr, ans + curr);
+  }
+}
 ```
 
 ### Space and Time Complexity
 
-- TC:
-- SC:
+- TC: O(n * n!) - It n! to find total permutations. It will take n time for each calculation
+- SC: O(n) - depth of the call stack is equal to the length of the string n
 
 ---
 
