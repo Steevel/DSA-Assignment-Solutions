@@ -42,18 +42,35 @@
 
 ### Algorithm
 
-1.
+1. Define function `findSubsets` which takes a string as input
+2. Base case: If i is equal to length of the string. If length of ans string is 0 then print null else print ans else print ans and return
+3. For the current character there are two choices. 1. to be included in the subset and 2. not to be included in the subset. For the first choice add current character to ans and make recursive call with i+1. For the second choice just make recursive call with i+1
 
 ### Code
 
 ```java
-
+public static void findSubsets(String str, String ans, int i) {
+  // base case
+  if (i == str.length()) {
+    if (ans.length() == 0) {
+      System.out.println("null");
+    } else {
+      System.out.println(ans);
+    }
+    return;
+  }
+  // recursion
+  // yes choice to be included in subset
+  findSubsets(str, ans + str.charAt(i), i + 1);
+  // No choice
+  findSubsets(str, ans, i + 1);
+}
 ```
 
 ### Space and Time Complexity
 
-- TC: O(n) -
-- SC: O(n) -
+- TC: O(n \*2^n) - Total subsets for a string of lenght n is 2^n and time required to calculate each subset is n. Threfore n* 2^n is the time complexity
+- SC: O(n) - because max depth of the recursion stack is equal to the length of the string
 
 ---
 
