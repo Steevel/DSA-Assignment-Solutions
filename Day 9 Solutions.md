@@ -1,4 +1,4 @@
-# Day 9 Solutions9
+# Day 9 Solutions
 
 ## Question 1
 
