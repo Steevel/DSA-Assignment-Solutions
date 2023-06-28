@@ -5,7 +5,7 @@
 ### Algorithm
 
 1. Define funtion `isPowerOfTwo` which takes an integer n as input
-2. Base case: if the n <= 0 return false since n is not a power of two. If n is equal to one return true since 1 is the power of two
+2. Base case: if the n <= 0 return false since negative numbers are not power of two. If n is equal to one return true since 1 is the power of two
 3. else check if n%2 == 0. If not return false since the power of two will always be completely divisible by 2
 4. If n%2 == 0, return the result of recursive call to isPowerOfTwo with n/2
 

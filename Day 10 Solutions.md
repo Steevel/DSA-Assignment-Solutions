@@ -1,21 +1,34 @@
-# Day 10 Solutions
+# Day 10 Solutions - 1, 3, 4
 
 ## Question 1
 
 ### Algorithm
 
-1.
+1. Define funtion `isPowerOfThree` which takes an integer n as input
+2. Base case: if the n <= 0 return false since negative numbers are not power of three. If n is equal to one return true since 1 is the power of three
+3. else check if n%3 == 0. If not return false since the power of two will always be completely divisible by 3
+4. If n%3 == 0, return the result of recursive call to isPowerOfThree with n/3
 
 ### Code
 
 ```java
-
+public static boolean isPowerOfThree(int n){
+  if(n <= 0){
+      return false; // Base case: non-positive integers are not powers of three
+  } else if(n == 1){
+      return true; // Base case: 1 is a power of two
+  } else if(n % 3 == 0){
+      return isPowerOfThree(n/3); // Recursive case: check if n/3 is a power of three
+  } else {
+      return false;
+  }
+}
 ```
 
 ### Space and Time Complexity
 
-- TC: O(n) -
-- SC: O(n) -
+- TC: O(log n) - Since in each recursive call n is halved
+- SC: O(log n) - Since in each recursive call n is halved
 
 ---
 
