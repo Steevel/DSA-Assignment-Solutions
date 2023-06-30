@@ -1,4 +1,4 @@
-# Day 4 Solutions - 1, 4, 5, 6, 7, 8
+# Day 4 Solutions - 1, 2, 4, 5, 6, 7, 8
 
 ## Question 1
 
@@ -58,13 +58,52 @@ vector <int> commonElements (int A[], int B[], int C[], int n1, int n2, int n3)
 
 ### Algorithm
 
+1. Initialize 2 hashsets
+2. Iterate over the input arrays and store their values in hashset
+3. Initialize 2 arraylists
+4. Iterate over each of the hashsets and check if the value is present in another hashset. If it is not present push the element into the arraylist
+5. add both the arraylists to a list of arraylists and return the resultant list
+
 ### Code
 
-```c
+```java
+Set<Integer> set1 = new HashSet<>();
+Set<Integer> set2 = new HashSet<>();
 
+for(int num: nums1){
+  set1.add(num);
+}
+
+for(int num: nums2){
+  set2.add(num);
+}
+
+List<List<Integer>> result = new ArrayList<>();
+ArrayList<Integer> list1 = new ArrayList<>();
+ArrayList<Integer> list2 = new ArrayList<>();
+
+for(int num: set1){
+  if(!set2.contains(num)){
+    list1.add(num);
+  }
+}
+
+for(int num: set2){
+  if(!set1.contains(num)){
+    list2.add(num);
+  }
+}
+
+result.add(list1);
+result.add(list2);
+
+return result;
 ```
 
 ### Space and Time Complexity
+
+- TC: O(M+N) - time required to iterate over both arrays
+- SC: O(max(M,N)) - the array which has maximum unique elment its set will be of maximum size
 
 ---
 
