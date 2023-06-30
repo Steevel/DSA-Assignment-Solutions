@@ -1,4 +1,4 @@
-# Day 4 Solutions - 1, 5, 6, 7, 8
+# Day 4 Solutions - 1, 4, 5, 6, 7, 8
 
 ## Question 1
 
@@ -74,11 +74,14 @@ vector <int> commonElements (int A[], int B[], int C[], int n1, int n2, int n3)
 
 ### Code
 
-```c
+```java
 
 ```
 
 ### Space and Time Complexity
+
+- TC: O()
+- SC: O()
 
 ---
 
@@ -86,13 +89,27 @@ vector <int> commonElements (int A[], int B[], int C[], int n1, int n2, int n3)
 
 ### Algorithm
 
+1. Sort the give . Initialize the sum
+2. Iterater over the array in the steps of 2 and add the current element to the sum
+3. Return the sum
+
 ### Code
 
-```c
+```java
+Arrays.sort(nums);
+int sum = 0;
 
+for(int i = 0; i < nums.length; i+=2){
+    sum = sum + nums[i];
+}
+
+return sum;
 ```
 
 ### Space and Time Complexity
+
+- TC: O(nlogn) - Since we are sorting the array
+- SC: O(1) - Since we are not using any extra space
 
 ---
 
