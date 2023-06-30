@@ -111,16 +111,31 @@ return result;
 
 ### Algorithm
 
+1. Calculate number of rows and columns of the given 2d array
+2. Initialize result array with column size of the input 2d array as row size and row size of the given 2d array as column size.(because in transpose rows become columns and columns become rows)
+3. Iterate over the input 2d array and copy the elements arr[i][j] into the result array at res[j][i]
+4. Return the result array
+
 ### Code
 
 ```java
+int m = matrix.length;
+int n = matrix[0].length;
+int[][] res = new int[n][m]; // **** row and column sizes interchange
 
+for(int i = 0; i < m; i++){
+  for(int j = 0; j < n; j++){
+    res[j][i] = matrix[i][j]; // **
+  }
+}
+
+return res;
 ```
 
 ### Space and Time Complexity
 
-- TC: O()
-- SC: O()
+- TC: O(m * n) - Since we iterate over given 2d array
+- SC: O(m * n) - Since we use result array
 
 ---
 
