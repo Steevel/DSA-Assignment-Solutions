@@ -164,12 +164,35 @@ return (int)end;
 
 ### Algorithm
 
+1. Iterate over the input array
+2. For each number in array left shift the number at ith place by 10 bits and or(|) it with the number at i+nth place inorder to store both numbers in the same position
+3. Iterate backwards from the middle of the array. retrive y from the number by anding(&) it with 1023 (which in binary becomes 10 set bits i.e 1111111111). retrive x from the number shifting it 10 bits to the right
+4. return the modified arrray
+
 ### Code
 
-```c
+```java
+for(int i = 0; i < n; i++){
+  nums[i] = nums[i] << 10; // shift current value by 10 bits
+  nums[i] = nums[i] | nums[i+n]; // store the value y in x
+}
 
+int j = 2 * n - 1;
+for(int i = n-1; i >= 0; i--){
+  int y = nums[i] & (int)(Math.pow(2,10)-1); // retrive y
+  int x = nums[i] >> 10; // retrive x
+
+  nums[j] = y;
+  nums[j-1] = x;
+  j -= 2;
+}
+
+return nums;
 ```
 
 ### Space and Time Complexity
+
+- TC: O(n) - since we are iterating over the input array
+- SC: O(1) - since we are not using any extra space
 
 ---
