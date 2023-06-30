@@ -1,4 +1,4 @@
-# Day 4 Solutions - 1, 2, 4, 5, 6, 7, 8
+# Day 4 Solutions
 
 ## Question 1
 
