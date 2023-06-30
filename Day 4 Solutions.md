@@ -1,4 +1,4 @@
-# Day 4 Solutions - 1, 5, 8
+# Day 4 Solutions - 1, 5, 6, 7, 8
 
 ## Question 1
 
@@ -136,13 +136,35 @@ return (int)end;
 
 ### Algorithm
 
+1. Initialize an res array, start and end pointer
+2. Iterate over the input array backwards. If the absolute value of arr[start] is greater than absolute value of arr[end] then multiply arr[start] with iteself and store it in res array else do the same thing with arr[end]
+3. Return the result array
+
 ### Code
 
-```c
+```java
+int n = nums.length;
+int[] res = new int[n];
 
+int start = 0, end = n - 1;
+for(int i = n-1; i >= 0; i--){
+
+  if(Math.abs(nums[start]) > Math.abs(nums[end])){
+    res[i] = nums[start] * nums[start];
+    start++;
+  } else {
+    res[i] = nums[end] * nums[end];
+    end--;
+  }
+}
+
+return res;
 ```
 
 ### Space and Time Complexity
+
+- TC: O(n) - since we are iterating over the input array
+- SC: O(n) - since we are using extra space
 
 ---
 
