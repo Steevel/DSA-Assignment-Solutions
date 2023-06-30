@@ -100,28 +100,29 @@ vector <int> commonElements (int A[], int B[], int C[], int n1, int n2, int n3)
 
 ### Algorithm
 
-1. Assume number of rows completed is k. These rows contain 1+2+3+..+k=k(k+1)/2 <= N.
-2. Apply binary search to find k which is less than or equal to k. If current is equal to k return k
-3. return end
+1. Assume number of rows completed is k. These rows contain 1+2+3+..+k=k(k+1)/2 coins.
+2. We need to find the maximum k where k <= N. Apply binary search from 0 to n.
+3. If coins are equal to n return k. if coins are less thatn n start = k+1 else end = k-1
+4. return end
 
 ### Code
 
-```c
-long start = 0, end = n;
+```java
+long start = 0, end = n - 1;
 long k, curr;
 
 while(start <= end){
-  k = start + (end - start) / 2;
-  curr = k * (k+1)/2;
+  k = start + (end - start)/2;
+  coins = k * (k + 1)/2;
 
-  if(curr == n) return (int)k;
-
-  if(n < curr) {
-      end = k - 1;
-  }else {
-      start = k + 1;
+  if(coins == n) return (int)k;
+  if(coins < n){
+    start = k + 1;
+  } else {
+    end = k - 1;
   }
 }
+
 return (int)end;
 ```
 
