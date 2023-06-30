@@ -1,4 +1,4 @@
-# Day 4 Solutions
+# Day 4 Solutions - 1, 5, 8
 
 ## Question 1
 
@@ -150,13 +150,27 @@ return (int)end;
 
 ### Algorithm
 
+1. Initialize row and column with m and n respectively
+2. Iterate over the ops array and find the minimum value the current row and column values and the current value of ops array
+3. Return the product of row and column values
+
 ### Code
 
-```c
+```java
+int r = m, c = n;
 
+for(int i = 0; i < ops.length; i++){
+  r = Math.min(r, ops[i][0]);
+  c = Math.min(c, ops[i][1]);
+}
+
+return r * c;
 ```
 
 ### Space and Time Complexity
+
+- TC: O(n) - since we are iterating over the input array
+- SC: O(1) - since we are not using any extra space
 
 ---
 
