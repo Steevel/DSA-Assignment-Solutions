@@ -1,4 +1,4 @@
-# Day 3 Solutions
+# Day 3 Solutions - 1, 4, 5, 6
 
 ## Question 1
 
