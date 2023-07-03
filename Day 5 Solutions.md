@@ -1,4 +1,4 @@
-# Day 4 Solutions - 1, 2, 3, 4, 6
+# Day 4 Solutions - 1, 2, 3, 4, 5, 6
 
 ## Question 1
 
@@ -239,18 +239,39 @@ return res;
 
 ### Algorithm
 
-1.
+1. Initialize start and end pointers
+2. while start less than or equal to end calculate mid
+3. If mid is greater than 0 and arr[mid] < arr[mid-1] then return arr[mid]
+4. else check if the left part is sorted and right part is not sorted. If yes set start to mid +  1 to search in right part
+5. else set mid - 1 to search in left part
+6. return arr[start]
 
 ### Code
 
 ```java
+if(nums.length == 0) return -1;
+if(nums.length == 1) return nums[0];
+int start = 0, end = nums.length - 1;
 
+while(start <= end){
+  int mid = start + (end - start)/2;
+  
+  if(mid > 0 && nums[mid] < nums[mid-1]){
+    return nums[mid];
+  } else if(nums[start] <= nums[mid] && nums[mid] > nums[end]){
+    start = mid + 1;
+  } else {
+    end = mid - 1;
+  }
+}
+
+return nums[start];
 ```
 
 ### Space and Time Complexity
 
-- TC: O() -
-- SC: O() -
+- TC: O(logn) - Since we use binary search
+- SC: O(1) - Since we do not use any extra space
 
 ---
 
