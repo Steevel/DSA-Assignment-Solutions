@@ -1,4 +1,4 @@
-# Day 4 Solutions - 2, 3, 4, 6
+# Day 4 Solutions - 1, 2, 3, 4, 6
 
 ## Question 1
 
@@ -6,7 +6,7 @@
 
 1. Check if the length of the input array is equal to product of given m and n values. If not return empty 2d array
 2. If it is equal intialize a 2d result array of m rowsn and n columns
-3. Iterate through the input array and place each element at the appropriate position in result array by calculating the row and column indices of that element in the result array using the formula [i/2][i%2]
+3. Iterate through the input array and place each element at the appropriate position in result array by calculating the row and column indices of that element in the result array using the formula [i/columns][i%columns]
 4. Return the result array
 
 ### Code
@@ -160,18 +160,48 @@ return result;
 
 ### Algorithm
 
-1.
+1. Sort arr2 and intialize the distance
+2. Iterate over arr1 an check if the current element(val) check if there is any elment in arr2 in the range val-d and val+d using binary search
+3. If not found increment the distance
+4. return the distance
 
 ### Code
 
 ```java
+public int findTheDistanceValue(int[] arr1, int[] arr2, int d) {
+  Arrays.sort(arr2);
+  int distance  = 0;
+  for(int i = 0; i < arr1.length; i++){
+    if(notInRange(arr2, arr1[i]-d, arr1[i]+d)){
+      distance++;
+    }
+  }
 
+  return distance;
+}
+
+public static boolean notInRange(int[] arr, int from, int to){
+  int start = 0;
+  int end = arr.length - 1;
+
+  while(start <= end){
+    int mid = start + (end - start)/2;
+    if(arr[mid] >= from && arr[mid] <= to){
+      return false;
+    } if(arr[mid] < from){
+      start = mid + 1;
+    } else {
+      end = mid - 1;
+    }
+  }
+  return true;
+}
 ```
 
 ### Space and Time Complexity
 
-- TC: O() -
-- SC: O() -
+- TC: O(nlogn) - Since are are sorting the array using inbuilt function
+- SC: O(1) - Since we are not using any extra space
 
 ---
 
