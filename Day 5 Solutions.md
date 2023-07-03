@@ -4,18 +4,29 @@
 
 ### Algorithm
 
-1.
+1. Check if the length of the input array is equal to product of given m and n values. If not return empty 2d array
+2. If it is equal intialize a 2d result array of m rowsn and n columns
+3. Iterate through the input array and place each element at the appropriate position in result array by calculating the row and column indices of that element in the result array using the formula [i/2][i%2]
+4. Return the result array
 
 ### Code
 
 ```java
+if(original.length != m*n) return new int[][]{};
 
+int[][] res = new int[m][n];
+
+for(int i = 0; i < original.length; i++){
+    res[i/n][i%n] = original[i];
+}
+
+return res;
 ```
 
 ### Space and Time Complexity
 
-- TC: O() -
-- SC: O() -
+- TC: O(n) - Since we are iterating over the input array
+- SC: O(1) - Since we are not using any extra space
 
 ---
 
