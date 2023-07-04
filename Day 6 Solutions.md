@@ -23,18 +23,39 @@
 
 ### Algorithm
 
-1.
+1. Calculate number of rows and columns in the given 2d matrix. Initialize start and end pointers
+2. while start is less than or equal to end, calculate mid
+3. If matrix[mid/columns][mid%columns] is equal to the target then return true
+4. Else if matrix[mid/columns][mid%column] is greater than the target then return end pointer to mid-1
+5. Else move start pointer to mid+1
+6. If control comes out of the while loop return false
 
 ### Code
 
 ```java
+int m = matrix.length; // No. of rows
+int n = matrix[0].length; // No. of cols
+int start = 0, end = m * n - 1;
 
+while(start <= end){
+  int mid = start + (end - start) / 2;
+
+  if(matrix[mid/n][mid%n] == target){
+    return true;
+  } else if(matrix[mid/n][mid%n] > target){
+    end = mid - 1;
+  } else {
+    start = mid + 1;
+  }
+}
+
+return false;
 ```
 
 ### Space and Time Complexity
 
-- TC: O() -
-- SC: O() -
+- TC: O(log(m*n)) - Since we are using binary search
+- SC: O(1) - Since we are not using any extra space
 
 ---
 
@@ -194,4 +215,4 @@ return matrix;
 
 ---
 
-Day 6 - Question 7 completed
+Day 6 - Question 2 completed
