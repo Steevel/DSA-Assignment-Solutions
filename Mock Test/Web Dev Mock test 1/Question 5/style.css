@@ -1,0 +1,23 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+}
+
+.box {
+  background-color: #172739;
+  color: #fff;
+}
+
+.box1 {
+  grid-row: 1 / 3;
+}
+
+.box2 {
+  grid-row: 1 / 3;
+}
+
+.box5 {
+  grid-column: 1/3;
+}
