@@ -1,4 +1,4 @@
-# Day 6 Solutions -  7
+# Day 6 Solutions -  2, 3, 7
 
 ## Question 1
 
@@ -63,18 +63,46 @@ return false;
 
 ### Algorithm
 
-1.
+1. If length of array is less than 3 it cannot form mountain array so return false
+2. Iterate over the array and check if arr[i] < arr[i+1]. If yes continue else break out of the loop
+3. Check if i equal to 0 or n-1. If yes return false. If the entire array is either decreasing or increasing then i will be equal to 0 or n-1 respectively
+4. Now check from the end of the array. if arr[j] < arr[j-1]. If no then return false
+5. Finally return true
 
 ### Code
 
 ```java
+if(arr.length < 3) return false;
 
+int n = arr.length, i;
+
+for(i = 0; i < n-1; i++){
+  if(arr[i] < arr[i+1]){
+      continue;
+  } else {
+      break;
+  }
+}
+
+if(i == 0 || i == n-1){
+    return false;
+}
+
+for(int j = n-1; j > i; j--){
+  if(arr[j] < arr[j-1]){
+      continue;
+  } else {
+      return false;
+  }
+}
+
+return true;
 ```
 
 ### Space and Time Complexity
 
-- TC: O() -
-- SC: O() -
+- TC: O(n) - Since we are visiting each and every element of the array
+- SC: O(1) - Since we are not using any extra space
 
 ---
 
@@ -215,4 +243,4 @@ return matrix;
 
 ---
 
-Day 6 - Question 2 completed
+Day 6 - Question 3 completed
