@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  background-color: #ff4957;
+  border-radius: 8px;
+  width: 500;
+  height: 200px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.container h1 {
+  color: white;
+}
+
+.card {
+  display: flex;
+  gap: 5px;
+}
+
+button {
+  background-color: white;
+  padding: 8px 16px;
+  border: none;
+}
