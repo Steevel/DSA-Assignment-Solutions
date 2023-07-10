@@ -12,7 +12,8 @@
 
 ## Q.6 Imagine you are a web developer working for a creative agency that specializes in building visually appealing and interactive websites. The agency has recently received a client request to create a landing page similar to the design of the one-page website: <https://www.getonecard.app/>. The client wants to showcase a video prominently on the page to engage visitors. Your task is to create a simple webpage that replicates the one-page landing page design, including a responsive layout and an HTML video. The below images are for your reference. Some browsers don’t allow you to play videos without the controls attribute. So, you can add controls here, we will learn how to play a video without the controls attribute in the later sections
 
--
+- We can play a video on a website without using `controls` attribute by adding 3 other attributes `autoplay` for automatically playing the video when the website is loaded. We also need to add `muted` attribute otherwise some browsers will not play the video and to play the video in loop we should add `loop` attribute. Example in github repo below:
+- [Github repo link](https://github.com/Steevel/DSA-Assignment-Solutions/tree/master/Web%20Dev%20Assingment%20Solutions/Projects/Assignment%203%20-%20Question%206)
 
 ## Q.7 You are tasked with building a webpage that displays an image gallery using a grid layout. The challenge is to ensure the gallery is visually appealing and functional on both large and small screens. On large screens, the gallery should display multiple images per row, while on small screens, it should collapse into a single column for optimal viewing. Refer to the attached images for visual reference. Implement this using CSS Grid and media queries for responsiveness
 

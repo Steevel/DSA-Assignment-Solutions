@@ -95,6 +95,21 @@ video {
   height: 100%;
 }
 
+.info-container {
+  background: #000;
+  color: var(--text-clr-white);
+  position: relative;
+}
+
+.info {
+  text-align: center;
+  padding: 4rem;
+}
+
+.infoHeading {
+  color: blueviolet;
+}
+
 @media (max-width: 480px) {
   .nav-links {
     display: none;
@@ -103,6 +118,7 @@ video {
   .hero {
     flex-direction: column;
     margin-top: 2rem;
+    height: 100%;
   }
 
   .hero-left {
@@ -115,5 +131,15 @@ video {
 
   .hero-right {
     width: 100%;
+  }
+
+  .info-container {
+    background: var(--text-clr-white);
+    color: black;
+    position: relative;
+  }
+
+  .info {
+    padding: 2rem;
   }
 }
