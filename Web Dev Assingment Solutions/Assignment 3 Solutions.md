@@ -25,4 +25,6 @@
 
 ## Q.9 You have reached the final task of learning responsive web design, which involves designing a responsive footer. Your goal is to build a simple webpage footer that matches the design shown in the attached image. The footer should adapt to different screen sizes, ensuring optimal visibility and alignment of the content. Refer to the attached image for a visual reference
 
+- [Github repo link](https://github.com/Steevel/DSA-Assignment-Solutions/tree/master/Web%20Dev%20Assingment%20Solutions/Projects/Assignment%203%20-%20Question%209)
+
 ## Q.10 You have been given to create a student dashboard page that includes a student details table. The challenge lies in handling the table's display on different screen sizes. On large screens, the table should be fully visible, while on small screens, it should have an internal scroll to ensure proper visibility of information. Refer to the attached images for visual reference
