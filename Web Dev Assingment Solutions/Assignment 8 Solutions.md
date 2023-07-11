@@ -71,7 +71,7 @@ Below are the main differences between Real DOM and Virtual DOM,
 
 ## Q.9  Develop a GitHub User Finder web application using React The application should allow users to enter a GitHub username and display relevant information about the user
 
--
+- [Github repo link](https://github.com/Steevel/DSA-Assignment-Solutions/tree/master/Web%20Dev%20Assingment%20Solutions/Projects/Assignment%208%20-%20Question%209)
 
 ## Q.10  Develop a simple website using React, fetch and display products from the "<https://fakestoreapi.com/products>" API
 
