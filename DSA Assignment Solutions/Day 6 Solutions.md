@@ -1,21 +1,40 @@
-# Day 6 Solutions -  2, 3, 7
+# Day 6 Solutions -  1, 2, 3, 5, 6, 7, 8
 
 ## Question 1
 
 ### Algorithm
 
-1.
+1. Calculate the length of the string. Intialize low and high to 0 and size the string. Also initialize the result array with size+1 as it's size
+2. Iterate over the string and check if the current character is 'I' if yes add low at res[i] and increment low else add high and decrement high
+3. At the last position add either low or high
 
 ### Code
 
 ```java
+int size = s.length();
+int low = 0;
+int high = size;
 
+int[] res = new int[size+1];
+
+for(int i = 0; i < size; i++){
+    if(s.charAt(i) == 'I'){
+        res[i] = low;
+        low++;
+    } else {
+        res[i] = high;
+        high--;
+    }
+}
+
+res[size] = high;
+return res;
 ```
 
 ### Space and Time Complexity
 
-- TC: O() -
-- SC: O() -
+- TC: O(N) - Since we are iterating over the string
+- SC: O(1) - Since we are not using any extra space
 
 ---
 
@@ -129,18 +148,29 @@ return true;
 
 ### Algorithm
 
-1.
+1. Sort both the arrays. Initialize sum with 0.
+2. Iterate from 0 to n. Multiply minimum element of array1 with maximum element of array2 and it to the sum
+3. Return sum
 
 ### Code
 
 ```java
+Arrays.sort(a);
+Arrays.sort(b);
 
+long sum = 0;
+
+for(int i = 0; i < n; i++){
+    sum = sum + (a[i] * b[(int)n - i - 1]);
+}
+
+return sum;
 ```
 
 ### Space and Time Complexity
 
-- TC: O() -
-- SC: O() -
+- TC: O(nlogn) - Since we are sorting the array
+- SC: O(1) - Since we are not using any extra space
 
 ---
 
@@ -253,19 +283,33 @@ return matrix;
 
 ### Algorithm
 
-1.
+1. Calculate the number of rows in matrix1, number of columns in matrix2 and number of rows in matrix2
+2. Iterate over the given matrices and calculate a[i][j]
+3. return ans
 
 ### Code
 
 ```java
+int m = mat1.length; 
+int n = mat2.length; 
+int l = mat2[0].length; 
 
+int[][] ans = new int[m][l];
+
+for (int i = 0; i < m; i++) { // i from 0 to rows of mat1
+  for (int j = 0; j < l; j++) { // j from 0 to cols of mat2
+    for (int k = 0; k < n; k++) { // k from 0 rows of mat2/cols of mat1
+      ans[i][j] += mat1[i][k] * mat2[k][j];
+    }
+  }
+}
+
+return ans;
 ```
 
 ### Space and Time Complexity
 
-- TC: O() -
-- SC: O() -
+- TC: O(mnl)
+- SC: O(ml)
 
 ---
-
-Day 6 - Question 3 completed
