@@ -148,18 +148,43 @@ return true;
 
 ### Algorithm
 
-1.
+1. Check if the array legth is odd. If yes return empty array
+2. Initialize a result array of size n/2. Also intialize a map
+3. Iterate through the array and store the values and their frequencies in the map
+4. Iterate over the map and for each key x check if value x is > value x+x. If yes return empty array.
+5. If not then decrement the frequency of the elements and push x into the result array
+6. return the result array
 
 ### Code
 
 ```java
+int n = changed.length, i = 0;
 
+// Check if the array lenght is odd or there is only one element in the array
+if(n % 2 == 1) return new int[0];
+// Initalize result array
+int[] res = new int[n/2];
+// Create a map
+Map<Integer, Integer> map = new TreeMap<>();
+for(int a: changed){
+    map.put(a, map.getOrDefault(a,0)+1);
+}
+for(int x: map.keySet()){
+    if(map.get(x) > map.getOrDefault(x+x, 0))
+        return new int[0];
+    for(int j = 0; j < map.get(x); ++j){
+        res[i++] = x;
+        map.put(x+x, map.get(x+x) - 1);
+    }
+}
+
+return res;
 ```
 
 ### Space and Time Complexity
 
-- TC: O() -
-- SC: O() -
+- TC: O(Nlogk)
+- SC: O(n)
 
 ---
 
