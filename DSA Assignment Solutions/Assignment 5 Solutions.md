@@ -1,4 +1,4 @@
-# Day 5 Solutions - 1, 2, 3, 4, 5, 6, 7
+# Day 5 Solutions
 
 ## Question 1
 

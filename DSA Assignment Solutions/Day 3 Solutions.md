@@ -51,6 +51,44 @@ return ans;
 
 ---
 
+## Question 2
+
+### Algorithm
+
+1.
+
+### Code
+
+```java
+
+```
+
+### Space and Time Complexity
+
+- TC: O(N^2) - Since we have two loops
+- SC: O(1) - We are not using any extra space
+
+---
+
+## Question 3
+
+### Algorithm
+
+1.
+
+### Code
+
+```java
+
+```
+
+### Space and Time Complexity
+
+- TC: O(N^2) - Since we have two loops
+- SC: O(1) - We are not using any extra space
+
+---
+
 ## Question 4
 
 ### Algorithm
@@ -148,6 +186,44 @@ for(auto x: mpp){
 }
 
 return - 1;
+```
+
+### Space and Time Complexity
+
+- TC: O(n) - Since we are traversing array of size n
+- SC: O(n) - Since wer are using map
+
+---
+
+## Question 7
+
+### Algorithm
+
+1.
+
+### Code
+
+```c
+
+```
+
+### Space and Time Complexity
+
+- TC: O(n) - Since we are traversing array of size n
+- SC: O(n) - Since wer are using map
+
+---
+
+## Question 8
+
+### Algorithm
+
+1.
+
+### Code
+
+```java
+
 ```
 
 ### Space and Time Complexity
