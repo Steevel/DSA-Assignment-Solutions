@@ -129,18 +129,41 @@ return true;
 
 ### Algorithm
 
-1.
+1. To solve this problem we can follow a trick. Initilaize sum and iterate over the array. whenver the element is 1 increment the sum by 1 and and whenver the element is 0 decrement the sum by 1
+2. At each step store the sum and the index at which it occurred in the hashmap if it does not already exist in the hashmap. If it exists then we need to calculate the current length by doing current index(i) minus the index corresponding to the same sum in the hashmap
+3. after the above calculation take the maximum of current length and previous max length and and assign it to max length
+4. Return max length
 
 ### Code
 
 ```java
+HashMap<Integer, Integer> counts = new HashMap();
+counts.put(0, -1); // sum = 0, index = -1
 
+int maxLength = 0;
+int sum = 0;
+
+for(int i = 0; i < nums.length; i++){
+  if(nums[i] == 0){
+    sum--;
+  } else {
+    sum++;
+  }
+
+  if(counts.containsKey(sum)){
+    maxLength = Math.max(maxLength, i-counts.get(sum));
+  } else {
+    counts.put(sum, i);
+  }
+}
+
+return maxLength;
 ```
 
 ### Space and Time Complexity
 
-- TC: O() -
-- SC: O() -
+- TC: O(n) - Since we are iterating over the array
+- SC: O(n) - Since we are using hashmap
 
 ---
 
