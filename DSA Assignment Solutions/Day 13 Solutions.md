@@ -1,4 +1,4 @@
-# Day 13 Solutions - 1, 2, 5, 6, 7
+# Day 13 Solutions
 
 ## Question 1
 
@@ -58,6 +58,82 @@ while(currNode != null && currNode.next!=null){
 }
 
 return head;
+```
+
+### Space and Time Complexity
+
+- TC: O(N) - The loop runs N times in the worst case
+- SC: O(1) - We are not using any extra space
+
+---
+
+## Question 3
+
+### Algorithm
+
+1. If the head is equa to null return head. if position is equal to 0 move the head to next node and retun the head
+2. Initialize the current node with head and count equal to 0. while count is less than position-1 and curr not equal to null keep moving the current node and increment count
+3. After the loop check next to next node of the current node is null. If yes set the next of the current node to null
+4. Else store next to next node in temp. point the next of current node to temp and previous of temp to current node
+5. Return head
+
+### Code
+
+```java
+if(head == null || head.next == null) return head;
+
+ListNode dummy = new ListNode(0, head);
+ListNode curr = dummy;
+
+while(curr.next != null && curr.next.next != null){
+    ListNode firstNode = curr.next;
+    ListNode secondNode = curr.next.next;
+    
+    firstNode.next = secondNode.next;
+    curr.next = secondNode;
+    curr.next.next = firstNode;
+    curr = curr.next.next;
+}
+
+return dummy.next;
+```
+
+### Space and Time Complexity
+
+- TC: O(N) - The loop runs N times in the worst case
+- SC: O(1) - We are not using any extra space
+
+---
+
+## Question 4
+
+### Algorithm
+
+1. If the head is equa to null return head. if position is equal to 0 move the head to next node and retun the head
+2. Initialize the current node with head and count equal to 0. while count is less than position-1 and curr not equal to null keep moving the current node and increment count
+3. After the loop check next to next node of the current node is null. If yes set the next of the current node to null
+4. Else store next to next node in temp. point the next of current node to temp and previous of temp to current node
+5. Return head
+
+### Code
+
+```java
+if(head == null || head.next == null) return head;
+
+ListNode dummy = new ListNode(0, head);
+ListNode curr = dummy;
+
+while(curr.next != null && curr.next.next != null){
+    ListNode firstNode = curr.next;
+    ListNode secondNode = curr.next.next;
+    
+    firstNode.next = secondNode.next;
+    curr.next = secondNode;
+    curr.next.next = firstNode;
+    curr = curr.next.next;
+}
+
+return dummy.next;
 ```
 
 ### Space and Time Complexity
@@ -147,17 +223,89 @@ if(list1.val <= list2.val){
 
 ### Algorithm
 
-1.
+1. If liked list is empty or it has only one node return head
+2. Create prevNode and assign null to it. Assign head to currNode also create a temp node
+3. while currNode is not null assign currNode.next to temp node. Assign currNode.next to prevNode and currNode.prev to temp. Point prevNode to currNode and currNode to temp
+4. At the end of while loop return prevNode which will be the new head of the reversed linked list
 
 ### Code
 
 ```java
-
+public static Node reverseDLL(Node  head)
+{
+  if(head == null || head.next == null) return head;
+    
+  Node prevNode = null;
+  Node currNode = head;
+  Node temp;
+  
+  while(currNode != null){
+    temp = currNode.next;
+    currNode.next = prevNode;
+    currNode.prev = temp;
+    
+    prevNode = currNode;
+    currNode = temp;
+  }
+  
+  head = prevNode;
+  return head;
+}
 ```
 
 ### Space and Time Complexity
 
 - TC: O(N) - The loop runs N times in the worst case
+- SC: O(1) - We are not using any extra space
+
+---
+
+## Question 8
+
+### Algorithm
+
+1. If the head is equa to null return head. if position is equal to 0 move the head to next node and retun the head
+2. Initialize the current node with head and count equal to 0. while count is less than position-1 and curr not equal to null keep moving the current node and increment count
+3. After the loop check next to next node of the current node is null. If yes set the next of the current node to null
+4. Else store next to next node in temp. point the next of current node to temp and previous of temp to current node
+5. Return head
+
+### Code
+
+```java
+if(head == null){
+    return head;
+}
+
+if(pos == 0){
+    head = head.next;
+    head.prev = null;
+    return head;
+}
+
+Node curr = head;
+int count = 0;
+
+
+while(count < pos-1 && curr != null){
+    curr = curr.next;
+    count++;
+}
+
+if(curr.next.next == null){
+    curr.next = null;
+} else {
+    Node temp = curr.next.next;
+    curr.next = temp;
+    temp.prev = curr;
+}
+
+return head;
+```
+
+### Space and Time Complexity
+
+- TC: O(N) - Since we iterate through the linked list
 - SC: O(1) - We are not using any extra space
 
 ---
